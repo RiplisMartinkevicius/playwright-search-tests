@@ -10,7 +10,9 @@ A small pytest suite using Playwright to automate and test search on DuckDuckGo,
 ## How to run it
 
 pip install pytest playwright
+
 python -m playwright install
+
 python -m pytest -v
 
 
