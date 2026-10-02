@@ -9,6 +9,10 @@ def page():
         yield page
         browser.close()
 
+def test_duckduckgo_homepage_has_search_box(page):
+    page.goto("https://duckduckgo.com")
+    assert page.is_visible("textarea[name='q']")
+
 def test_duckduckgo_search_shows_results(page):
         page.goto("https://duckduckgo.com")
         page.fill("textarea[name='q']", "Playwright Python")
@@ -30,7 +34,3 @@ def test_duckduckgo_search_shows_banana(page):
         page.press("textarea[name='q']", "Enter")
         page.wait_for_timeout(5000)
         assert "banana" in page.title()
-
-def test_duckduckgo_homepage_has_search_box(page):
-    page.goto("https://duckduckgo.com")
-    assert page.is_visible("textarea[name='q']")
